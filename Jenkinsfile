@@ -5,7 +5,7 @@ pipeline {
         stage('Prepare'){
             steps {
                 script {
-                    sh ('cp -r * /var/www/laravel')
+                    sh ('cp -r * var/www/laravel')
                     sh ('cd var/www/laravel')
                     echo 'Success'
                 }
