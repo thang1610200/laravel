@@ -117,12 +117,12 @@ Route::get("/logout", [LogoutController::class, 'logout']);
 Route::group(['prefix' => 'auth', 'middleware' => 'guest'], function () {
     Route::controller(RegisterController::class)->group(function () {
         Route::get('/register', 'index');
-        Route::post('/register', 'store')->middleware(CheckCaptcha::class);
+        Route::post('/register', 'store');//->middleware(CheckCaptcha::class);
     });
 
     Route::controller(LoginController::class)->group(function () {
         Route::get('/login', 'index')->name('login');
-        Route::post('/login', 'store')->middleware(CheckCaptcha::class);
+        Route::post('/login', 'store');//->middleware(CheckCaptcha::class);
     });
 
     Route::controller(ForgotPasswordController::class)->group(function () {

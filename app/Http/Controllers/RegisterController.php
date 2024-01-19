@@ -9,6 +9,7 @@ use Illuminate\Validation\Rules\Password;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 use App\Jobs\SendEmailVerify;
+use Illuminate\Support\Facades\Log;
 
 class RegisterController extends Controller
 {
@@ -28,6 +29,7 @@ class RegisterController extends Controller
             'confirm' => ['required', 'same:password'],
             'email' => ['required', 'email', 'unique:users']
         ]);
+        Log::alert('test');
 
         if ($validator->fails()) {
             return response()->json([

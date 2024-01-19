@@ -170,6 +170,7 @@
                                     $("#alert_email").addClass('d-none');
                                 }, 3000);
                             } else {
+                                console.log(jqXHR);
                                 alert(textStatus);
                             }
                             grecaptcha.reset();

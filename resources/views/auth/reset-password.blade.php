@@ -10,6 +10,8 @@
 
 <body class="bg-light">
     @extends('layout')
+
+    @section('content')
     <div class="d-flex flex-column align-items-center justify-content-center px-6 py-8 mx-auto mt-3">
         <div class="bg-white rounded-3 shadow-sm border bg-dark border-dark" style="width: 450px;">
             <div class="p-4 pb-6">
