@@ -17,7 +17,7 @@ pipeline {
             steps {
                 script {
                     sh ('cd $PATH_PROJECT')
-                    sh ('docker-compose up --build -d')
+                    sh ('sudo docker-compose up --build -d')
                 }
             }
         }
