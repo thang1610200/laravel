@@ -13,11 +13,20 @@ pipeline {
                 }
             }
         }
-        stage(''){
+
+        stage('Create .env'){
             steps {
                 script {
                     sh ('cd $PATH_PROJECT')
-                    sh ('docker-compose up --build -d')
+                    sh ('docker-compose --env-file ./.env up')
+                }
+            }
+        }
+
+        stage('Test with laravel'){
+            steps {
+                script {
+                    echo 'sd'
                 }
             }
         }
