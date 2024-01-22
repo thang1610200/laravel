@@ -2,6 +2,7 @@ pipeline {
     agent any
     environment {
         PATH_PROJECT = '/var/www/laravel'
+        SONAR_PROJECT_KEY = 'thang1610200_laravel_AY0vjgwR8-iSJNTe88UN'
     }
 
     stages {
@@ -14,11 +15,18 @@ pipeline {
             }
         }
 
+        stage('SonarQube Analysis') {
+            def scannerHome = tool 'SonarScanner';
+            withSonarQubeEnv() {
+                sh "${scannerHome}/bin/sonar-scanner"
+            }
+        }
+
         stage('Test with laravel'){
             steps {
                 script {
                     sh ('cd $PATH_PROJECT')
-                    sh ('docker-compose start php')
+                    sh ('docker-compose up --build php')
                     //sh ('docker run ') // run image thanhf container
                     echo 'sd'
                 }
