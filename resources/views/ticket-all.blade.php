@@ -2,11 +2,11 @@
     @foreach ($ticket as $data)
         <div class="col-12 col-sm-4 d-flex justify-content-center pb-4">
             <div class="card border-info">
-                <a href="http://localhost:3000/ticket/{{ $data->slug }}">
+                <a href="/ticket/{{ $data->slug }}">
                     <img class="card-img-top" src="{{ $data->ticket->image }}" style="object-fit: contain" />
                 </a>
                 <div class="card-body">
-                    <a href="http://localhost:3000/ticket/{{ $data->slug }}"
+                    <a href="/ticket/{{ $data->slug }}"
                         style="text-decoration: none; color: black;">
                         <h5 class="card-title fw-bold">{{ $data->ticket->name }}</h5>
                     </a>

@@ -1,19 +1,24 @@
 pipeline {
     agent any
+    environment {
+        PATH_PROJECT = '/var/www/laravel'
+    }
 
     stages {
-        stage('Prepare'){
+        stage('Check sourse'){
             steps {
                 script {
-                    sh ('cp -r * /var/www/laravel')
-                    sh ('cd /var/www/laravel')
+                    sh ('sudo cp -r * $PATH_PROJECT')
                     echo 'Success'
                 }
             }
         }
-        stage('Build'){
+        stage(''){
             steps {
-                echo 'Test'
+                script {
+                    sh ('cd $PATH_PROJECT')
+                    sh ('docker-compose up --build -d')
+                }
             }
         }
     }

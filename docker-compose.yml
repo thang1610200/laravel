@@ -9,7 +9,7 @@ services: #Khởi tạo service
         env_file:
             ./.env
         ports:
-            - "9000:9000" #ánh xạ port 9000 (máy chủ) tới port 9000 (máy ảo)
+            - "7000:9000" #ánh xạ port 9000 (máy chủ) tới port 9000 (máy ảo)
 
     mysql:
         image: mysql:8.0.29-oracle
