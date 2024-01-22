@@ -8,7 +8,7 @@ pipeline {
         stage('Check sourse'){
             steps {
                 script {
-                    sh ('sudo cp -r * $PATH_PROJECT')
+                    sh ('sudo cp -r . $PATH_PROJECT')
                     echo 'Success'
                 }
             }
