@@ -18,7 +18,7 @@ pipeline {
             steps {
                 script {
                     sh ('cd $PATH_PROJECT')
-                    sh ('docker-compose start php') // build image php
+                    sh ('docker-compose start php')
                     //sh ('docker run ') // run image thanhf container
                     echo 'sd'
                 }
