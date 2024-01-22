@@ -51,4 +51,6 @@ RUN apk add libzip-dev
 
 RUN apk add --update nodejs npm
 
+COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
+
 RUN docker-php-ext-install pdo pdo_mysql zip bcmath
