@@ -6,8 +6,6 @@ services: #Khởi tạo service
             dockerfile: Dockerfile
         volumes: #Định nghĩa nơi lưu trữ chia sẻ giữa ứng dụng và docker container.
             - .:/var/www/html # ánh xạ thư mục ./laravel (máy chủ) tới /var/www/html (máy ảo) (đảm bảo rằng khi container tắt đi và bật lại sẽ không mất dữ liệu)
-        env_file:
-            ./.env
         environment:
             - APP_NAME=Laravel
             - APP_ENV=local
@@ -69,6 +67,7 @@ services: #Khởi tạo service
             - CLOUDINARY_NOTIFICATION_URL=
         ports:
             - "7000:9000" #ánh xạ port 9000 (máy chủ) tới port 9000 (máy ảo)
+        command: sh -c 'composer update'
 
     mysql:
         image: mysql:8.0.29-oracle
