@@ -18,7 +18,7 @@ pipeline {
             steps {
                 script {
                     sh ('cd $PATH_PROJECT')
-                    sh ('docker-compose --env-file ./.env up')
+                    sh ('docker-compose --env-file .env up')
                 }
             }
         }
