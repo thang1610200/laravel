@@ -49,6 +49,15 @@ pipeline {
             }
         }
 
+        stage('Composer'){
+            steps{
+                script {
+                    sh ("sudo docker exec laravel-php-1 bash -c 'composer update'")
+                    sh ("sudo docker exec laravel-php-1 bash -c 'chown www-data:www-data -R ./storage'")
+                }
+            }
+        }
+
         stage('Migrate And Seeder'){
             steps{
                 script{
