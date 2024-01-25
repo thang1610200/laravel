@@ -40,8 +40,8 @@
 
 FROM php:8.2-fpm
 
-ARG user
-ARG uid
+ARG user=thang
+ARG uid=1000
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
@@ -70,7 +70,7 @@ RUN mkdir -p /home/$user/.composer && \
 WORKDIR /var/www
 
 # If you need to fix ssl
-COPY ./openssl.cnf /etc/ssl/openssl.cnf
+#COPY ./openssl.cnf /etc/ssl/openssl.cnf
 
 COPY composer.json composer.lock ./
 RUN composer install --no-dev --optimize-autoloader --no-scripts
