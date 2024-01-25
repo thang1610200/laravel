@@ -67,7 +67,7 @@ services: #Khởi tạo service
             - CLOUDINARY_NOTIFICATION_URL=
         ports:
             - "7000:9000" #ánh xạ port 9000 (máy chủ) tới port 9000 (máy ảo)
-        command: sh -c "chown www-data:www-data -R ./storage"
+        #command: sh -c "chown www-data:www-data -R ./storage"
 
     mysql:
         image: mysql:8.0.29-oracle
@@ -75,6 +75,8 @@ services: #Khởi tạo service
             - "3308:3306" #port 3308 (máy chủ) tránh trùng với port của mysql có trên máy (3307)
         volumes:
             - ./mysql:/var/lib/mysql
+        cap_add:
+            - SYS_NICE
         environment:
             MYSQL_DATABASE: ticket
             MYSQL_USER: thang
