@@ -27,6 +27,9 @@
 
 FROM php:8.1-fpm-alpine
 
+ARG user
+ARG uid
+
 WORKDIR /var/www/html
 
 RUN apk add --no-cache \
@@ -51,8 +54,13 @@ RUN apk add libzip-dev
 
 RUN apk add --update nodejs npm
 
+RUN useradd -G www-data,root -u $uid -d /home/$user $user
+RUN mkdir -p /home/$user/.composer && \
+    chown -R $user:$user /home/$user
+
 COPY --from=composer:latest /usr/bin/composer /usr/local/bin/composer
 
+COPY composer.json composer.lock ./
 RUN composer install --no-dev --optimize-autoloader --no-scripts
 
 RUN docker-php-ext-install pdo pdo_mysql zip bcmath
