@@ -79,7 +79,6 @@ services: #Khởi tạo service
             MYSQL_USER: thang
             MYSQL_PASSWORD: Thang1610@
             MYSQL_ROOT_PASSWORD: Thang1610@
-        user: jenkins
 
     phpmyadmin:
         image: phpmyadmin/phpmyadmin:latest
