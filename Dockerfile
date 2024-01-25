@@ -67,7 +67,7 @@ RUN useradd -G www-data,root -u $uid -d /home/$user $user
 RUN mkdir -p /home/$user/.composer && \
     chown -R $user:$user /home/$user
 
-WORKDIR /var/www
+WORKDIR /var/www/html
 
 # If you need to fix ssl
 #COPY ./openssl.cnf /etc/ssl/openssl.cnf
@@ -77,4 +77,4 @@ RUN composer install --no-dev --optimize-autoloader --no-scripts
 
 COPY . .
 
-RUN chown -R $uid:$uid /var/www
+RUN chown -R $uid:$uid /var/www/html
