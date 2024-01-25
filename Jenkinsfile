@@ -9,7 +9,7 @@ pipeline {
         stage('Check sourse'){
             steps {
                 script {
-                    sh ('sudo chown -R jenkins:jenkins /var/lib/jenkins/workspace')
+                    //sh ('sudo chown -R jenkins:jenkins /var/lib/jenkins/workspace')
                     sh ('sudo cp -r . $PATH_PROJECT')
                     echo 'Success'
                 }
