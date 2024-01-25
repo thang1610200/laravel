@@ -27,12 +27,6 @@ return new class extends Migration
             $table->foreignUuid('seller_id')->nullable();
             $table->timestamps();
         });
-
-
-        // Schema::table('tickets', function (Blueprint $table) {
-        //     $table->foreign('commission_id')->references('id')->on('commissions');
-        //     $table->foreign('seller_id')->references('id')->on('users');
-        // });
     }
 
     /**

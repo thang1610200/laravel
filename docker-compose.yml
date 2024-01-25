@@ -67,7 +67,7 @@ services: #Khởi tạo service
             - CLOUDINARY_NOTIFICATION_URL=
         ports:
             - "7000:9000" #ánh xạ port 9000 (máy chủ) tới port 9000 (máy ảo)
-        #command: sh -c "composer update" #&& chown www-data:www-data -R ./storage
+        command: sh -c "chown www-data:www-data -R ./storage"
 
     mysql:
         image: mysql:8.0.29-oracle
