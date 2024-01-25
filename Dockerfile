@@ -73,7 +73,7 @@ WORKDIR /var/www
 #COPY ./openssl.cnf /etc/ssl/openssl.cnf
 
 COPY composer.json composer.lock ./
-RUN composer update --no-dev --optimize-autoloader --no-scripts
+RUN composer install --no-dev --optimize-autoloader --no-scripts
 
 COPY . .
 
