@@ -3,6 +3,8 @@ pipeline {
     environment {
         PATH_PROJECT = '/var/www/laravel'
         SONAR_PROJECT_KEY = 'thang1610200_laravel_AY0vjgwR8-iSJNTe88UN'
+        SONAR_HOST_URL = 'http://34.121.240.164:9000'
+        SONAR_TOKEN = credentials('token-laravel-ticket')
     }
 
     stages {
@@ -16,17 +18,6 @@ pipeline {
             }
         }
 
-        // stage('SonarQube Analysis') {
-        //     steps {
-        //         script {
-        //             scannerHome = tool 'SonarQube Scanner';
-        //         }
-        //         withSonarQubeEnv('SonarQube server connection') {
-        //             sh "${scannerHome}/bin/sonar-scanner"
-        //         }
-        //     }
-        // }
-
         // stage('Build Service'){
         //     steps{
         //         script {
@@ -37,6 +28,18 @@ pipeline {
         //         }
         //     }
         // }
+
+        stage('SonarQube Test') {
+            steps {
+                script {
+                    sh "sonar-scanner \
+                            -Dsonar.projectKey=$SONAR_PROJECT_KEY \
+                            -Dsonar.sources=. \
+                            -Dsonar.host.url=$SONAR_HOST_URL \
+                            -Dsonar.login=$SONAR_TOKEN"
+                }
+            }
+        }
 
         stage('Build'){
             steps{
