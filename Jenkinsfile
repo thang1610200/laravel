@@ -52,9 +52,8 @@ pipeline {
         stage('Migrate And Seeder'){
             steps{
                 script{
-                    sh ("sudo docker exec laravel-php-1 bash -c 'php artisan migrate & php artisan db:seed'")
-                    // sh ('php artisan migrate')
-                    // sh ('php artisan db:seed')
+                    sh ("sudo docker exec laravel-php-1 bash -c 'php artisan migrate'")
+                    sh ("sudo docker exec laravel-php-1 bash -c 'php artisan db:seed'")
                 }
             }
         }   

@@ -22,6 +22,7 @@ return new class extends Migration
             $table->mediumInteger('quantity');
             $table->mediumInteger('quantity_sell')->default(0);
             $table->mediumInteger('total');
+            $table->softDeletes();
             //$table->boolean('status')->default(false);
             $table->timestamps();
         });
