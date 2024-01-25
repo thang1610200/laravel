@@ -27,17 +27,16 @@ pipeline {
         //     }
         // }
 
-        // stage('Test with laravel'){
-        //     steps {
+        // stage('Build Service'){
+        //     steps{
         //         script {
+        //             echo "start build"
         //             sh ('cd $PATH_PROJECT')
-        //             sh ('docker-compose up --build php')
-        //             //sh ('docker run ') // run image thanhf container
-        //             echo 'sd'
+        //             sh ('sudo docker-compose build --no-cache')
+        //             echo "Build success"
         //         }
         //     }
         // }
-
 
         stage('Build'){
             steps{
@@ -61,8 +60,22 @@ pipeline {
         stage('Migrate And Seeder'){
             steps{
                 script{
-                    sh ("sudo docker exec laravel-php-1 bash -c 'php artisan migrate'")
-                    sh ("sudo docker exec laravel-php-1 bash -c 'php artisan db:seed'")
+                    try {
+                        timeout(time: 5, unit: 'MINUTES'){
+                            env.userChoice = input message = "Migrate ?"
+                                parameters: [choice(name: 'Versioning Service', choice: 'no\nyes', description: 'Chọn "yes" để migrate!')]
+                        }
+
+                        if(env.userChoice == 'yes'){
+                            sh ("sudo docker exec laravel-php-1 bash -c 'php artisan migrate'")
+                            sh ("sudo docker exec laravel-php-1 bash -c 'php artisan db:seed'")
+                        }else{
+                            echo 'Next'
+                        }
+                    }
+                    catch(Exception error){
+                        echo 'Hủy migrate'
+                    }
                 }
             }
         }   

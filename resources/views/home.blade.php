@@ -54,7 +54,7 @@
                 </aside>
                 <main class="col-md-9">
                     <header class="border-bottom mb-4 pb-3 row">
-                        <p href="#" class="col-6 ps-5 text-black" style="font-size: 20px">Mua vé</p>
+                        <p href="#" class="col-6 ps-5 text-black" style="font-size: 20px">Mua vé chạy</p>
                         <!-- <a href="#" class="col d-flex justify-content-end pe-5 text-black-50" style="text-decoration: none;">Xem tất cả</a> -->
                         <div class="col-6 d-flex justify-content-end">
                             <select class="me-2 form-select sort-price" aria-label="Default select example"
