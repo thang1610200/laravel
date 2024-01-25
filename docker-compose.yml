@@ -73,14 +73,13 @@ services: #Khởi tạo service
         ports:
             - "3308:3306" #port 3308 (máy chủ) tránh trùng với port của mysql có trên máy (3307)
         volumes:
-            - mysql:/var/lib/mysql
-        cap_add:
-            - SYS_NICE
+            - ./mysql:/var/lib/mysql
         environment:
             MYSQL_DATABASE: ticket
             MYSQL_USER: thang
             MYSQL_PASSWORD: Thang1610@
             MYSQL_ROOT_PASSWORD: Thang1610@
+        user: jenkins
 
     phpmyadmin:
         image: phpmyadmin/phpmyadmin:latest
@@ -100,7 +99,8 @@ services: #Khởi tạo service
             - "6379:6379"
         command: redis-server
         volumes:
-            - redis:/data
+            - ./data/redis:/data
+        user: jenkins
 
     nginx:
         image: "nginx:stable"
