@@ -100,7 +100,6 @@ services: #Khởi tạo service
         command: redis-server
         volumes:
             - ./data/redis:/data
-        user: jenkins
 
     nginx:
         image: "nginx:stable"
