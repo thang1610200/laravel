@@ -62,7 +62,7 @@ pipeline {
                 script{
                     try {
                         timeout(time: 5, unit: 'MINUTES'){
-                            env.userChoice = input message: "Migrate ?"
+                            env.userChoice = input message: "Migrate ?",
                                 parameters: [choice(name: 'Versioning Service', choices: 'no\nyes', description: 'Chọn "yes" để migrate!')]
                         }
 
