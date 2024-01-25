@@ -43,7 +43,7 @@ pipeline {
                 script {
                     println GIT_BRANCH
                     sh ('cd $PATH_PROJECT')
-                    sh ('docker-compose up --build -d')
+                    sh ('sudo docker-compose up --build -d')
                 }
             }
         }
@@ -51,7 +51,7 @@ pipeline {
         stage('Migrate And Seeder'){
             steps{
                 script{
-                    sh ('docker exec -it laravel-php-1 sh')
+                    sh ('sudo docker exec -it laravel-php-1 sh')
                     sh ('php artisan migrate')
                     sh ('php artisan db:seed')
                 }
