@@ -41,6 +41,7 @@ pipeline {
         stage('Build'){
             steps{
                 script {
+                    println GIT_BRANCH
                     sh ('cd $PATH_PROJECT')
                     sh ('docker-compose up --build -d')
                 }
