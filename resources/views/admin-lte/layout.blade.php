@@ -33,6 +33,17 @@
     <link rel="stylesheet" href="{{ asset('almasaeed2010/adminlte/plugins/summernote/summernote-bs4.min.css') }}">
     @yield('style-libraries')
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-96EBDV365P"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-96EBDV365P');
+    </script>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -74,11 +85,14 @@
     <script src="{{ asset('almasaeed2010/adminlte/plugins/moment/moment.min.js') }}"></script>
     <script src="{{ asset('almasaeed2010/adminlte/plugins/daterangepicker/daterangepicker.js') }}"></script>
     <!-- Tempusdominus Bootstrap 4 -->
-    <script src="{{ asset('almasaeed2010/adminlte/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}"></script>
+    <script
+        src="{{ asset('almasaeed2010/adminlte/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js') }}">
+    </script>
     <!-- Summernote -->
     <script src="{{ asset('almasaeed2010/adminlte/plugins/summernote/summernote-bs4.min.js') }}"></script>
     <!-- overlayScrollbars -->
-    <script src="{{ asset('almasaeed2010/adminlte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
+    <script src="{{ asset('almasaeed2010/adminlte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}">
+    </script>
     <!-- AdminLTE App -->
     <script src="{{ asset('almasaeed2010/adminlte/dist/js/adminlte.js') }}"></script>
     <!-- AdminLTE for demo purposes -->
