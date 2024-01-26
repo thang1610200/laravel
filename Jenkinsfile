@@ -18,17 +18,6 @@ pipeline {
             }
         }
 
-        // stage('Build Service'){
-        //     steps{
-        //         script {
-        //             echo "start build"
-        //             sh ('cd $PATH_PROJECT')
-        //             sh ('sudo docker-compose build --no-cache')
-        //             echo "Build success"
-        //         }
-        //     }
-        // }
-
         stage('SonarQube Test') {
             steps {
                 script {
