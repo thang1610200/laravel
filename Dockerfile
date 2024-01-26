@@ -73,3 +73,7 @@ RUN composer install --no-dev --optimize-autoloader --no-scripts
 COPY . .
 
 RUN chown -R $uid:$uid /var/www/html
+
+COPY ./supervisord.conf /etc/supervisord.conf
+
+CMD ["/usr/bin/supervisord", "-n", "-c", "/etc/supervisord.conf"]
